@@ -1,10 +1,10 @@
 module Api
   module V1
     class DashboardController < ApplicationController
-      def index
-        load_recent_heard
-        load_recommendations
-      end
+      before_action :load_recent_heard, only: :index
+      before_action :load_recommendations, only: :index
+
+      def index; end
 
       private
 
