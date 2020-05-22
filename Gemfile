@@ -8,7 +8,7 @@ ruby '2.6.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'jbuilder', '~> 2.7'
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 4.3'
 gem 'pwa'
 gem 'rails', '~> 6.0.2'
 gem 'sass-rails', '>= 6'
