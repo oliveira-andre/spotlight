@@ -1,11 +1,12 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   devise_for :users
-  root 'home#index'
 
   concern :favoritable do |options|
     shallow do
-      post "/favorite", { to: "favorites#create", on: :member }.merge(options)
-      delete "/favorite", { to: "favorites#destroy", on: :member }.merge(options)
+      post '/favorite', { to: 'favorites#create', on: :member }.merge(options)
+      delete '/favorite', { to: 'favorites#destroy', on: :member }.merge(options)
     end
   end
 
@@ -23,4 +24,7 @@ Rails.application.routes.draw do
       resources :favorites, only: :index
     end
   end
+
+  root 'home#index'
+  get '/*path', to: 'home#index'
 end
