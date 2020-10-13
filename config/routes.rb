@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users
-
   concern :favoritable do |options|
     shallow do
       post '/favorite', { to: 'favorites#create', on: :member }.merge(options)
@@ -12,6 +10,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
+      resources :sessions, only: :create
       resources :dashboard, only: :index
       resources :search, only: :index
       resources :categories, only: %i[index show]
