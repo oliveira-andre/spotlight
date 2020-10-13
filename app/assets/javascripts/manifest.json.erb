@@ -1,0 +1,17 @@
+<% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
+{
+  "name": "Spotlight",
+  "short_name": "Spotlight - Music Player",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": <%= image_tag "logo_icon.png" %>,
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "theme_color": "#000",
+  "background_color": "#13e48a",
+  "display": "fullscreen",
+  "orientation": "portrait"
+}
