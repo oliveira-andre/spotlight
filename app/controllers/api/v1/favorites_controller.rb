@@ -9,7 +9,7 @@ module Api
       def index; end
 
       def create
-        @favoritable = current_user.favorites.create(
+        @favoritable = @current_user.favorites.create(
           favoritable_type: params[:favoritable_type], favoritable_id: params[:id]
         )
         head :created
@@ -23,19 +23,19 @@ module Api
       private
 
       def load_albums
-        @favorite_albums = current_user.favorites.albums.map(&:favoritable)
+        @favorite_albums = @current_user.favorites.albums.map(&:favoritable)
       end
 
       def load_songs
-        @favorite_songs = current_user.favorites.songs.map(&:favoritable)
+        @favorite_songs = @current_user.favorites.songs.map(&:favoritable)
       end
 
       def load_artists
-        @favorite_artists = current_user.favorites.artists.map(&:favoritable)
+        @favorite_artists = @current_user.favorites.artists.map(&:favoritable)
       end
 
       def load_favoritable
-        @favoritable = current_user.favorites.find_by(
+        @favoritable = @current_user.favorites.find_by(
           favoritable_type: params[:favoritable_type], favoritable_id: params[:id]
         )
       end
