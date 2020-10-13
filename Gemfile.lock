@@ -76,12 +76,6 @@ GEM
     childprocess (3.0.0)
     concurrent-ruby (1.1.6)
     crass (1.0.6)
-    devise (4.7.1)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0)
-      responders
-      warden (~> 1.2.3)
     dotenv (2.7.6)
     dotenv-rails (2.7.6)
       dotenv (= 2.7.6)
@@ -94,6 +88,7 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
+    jwt (2.2.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -114,7 +109,6 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
-    orm_adapter (0.5.0)
     parallel (1.19.2)
     parser (2.7.2.0)
       ast (~> 2.4.1)
@@ -161,9 +155,6 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     regexp_parser (1.7.0)
-    responders (3.0.0)
-      actionpack (>= 5.0)
-      railties (>= 5.0)
     rexml (3.2.4)
     rubocop (0.92.0)
       parallel (~> 1.10)
@@ -214,8 +205,6 @@ GEM
     tzinfo (1.2.7)
       thread_safe (~> 0.1)
     unicode-display_width (1.7.0)
-    warden (1.2.8)
-      rack (>= 2.0.6)
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -240,12 +229,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
-  devise
   dotenv-rails
   jbuilder (~> 2.7)
+  jwt
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
