@@ -4,8 +4,9 @@ import { FaRegHeart, FaHeart } from "react-icons/fa";
 import FavoritesService from '../../../services/favorites';
 
 const Favorite = (props) => {
-  let FavoredButton;
+  const [favored, setFavored] = useState(props.favored);
 
+  let FavoredButton;
   if(favored)
     FavoredButton = <FaHeart size='25px' className='has-text-white' onClick={() => disfavor()}/>
   else
