@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Navbar, Button, Container, Columns, Dropdown } from 'react-bulma-components';
-import logoImage from '../../../assets/images/logo.png';
+import logoImage from '../../../../assets/images/logo.png';
 import styled from 'styled-components';
 import { useLocation } from 'react-router-dom';
 import { FaUserCircle } from "react-icons/fa";
