@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.songs @songs.each do |song|
   json.id song.id
   json.title song.title

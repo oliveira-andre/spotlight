@@ -1,0 +1,18 @@
+AllCops:
+  TargetRubyVersion: 2.6
+  Exclude:
+    - 'spec/responses/*'
+    - 'vendor/**/*'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/environments/*'
+    - 'config/routes.rb'
+    - 'node_modules/**/*'
+
+Style/Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
+
+Metrics/BlockLength:
+  Max: 150
+

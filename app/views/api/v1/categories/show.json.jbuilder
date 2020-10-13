@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.name @category.name
 json.image_url url_for(@category.image)
 

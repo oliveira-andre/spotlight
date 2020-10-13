@@ -12,7 +12,7 @@ module Api
 
       private
 
-      def load_categories 
+      def load_categories
         @categories = Category.all
       end
 

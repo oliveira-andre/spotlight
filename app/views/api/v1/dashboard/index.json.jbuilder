@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 json.recent_albums @recent_albums.each do |album|
   json.id album.id
   json.title album.title

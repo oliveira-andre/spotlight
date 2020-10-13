@@ -16,7 +16,6 @@ module Api
                                      .limit(8).map(&:album).uniq
       end
 
-
       def load_recommendations
         heard_categories = @recent_albums.map(&:category)
         @recommended_albums = if heard_categories.present?
