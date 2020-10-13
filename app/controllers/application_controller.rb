@@ -3,9 +3,19 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery unless: -> { request.format.json? }
 
-  before_action :authenticate_user!, unless: -> { request.env['PATH_INFO'] == '/' }
+  rescue_from ServiceException do
+    render_error
+  end
 
-  def after_sign_in_path_for(_resource)
-    '/discovery'
+  before_action :authenticate_user!
+
+  private
+
+  def authenticate_user!
+    @current_user = SignInService.new(request.headers['authorization']).execute
+  end
+
+  def render_error
+    redirect_to root_path
   end
 end
