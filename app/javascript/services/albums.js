@@ -1,7 +1,7 @@
 import Api from './api';
 
 const AlbumsService = {
-  index: () => Api.get('/dashboard.json'),
+  index: () => Api.get('/dashboard'),
   show: (id) => Api.get(`/albums/${id}`)
 }
 
