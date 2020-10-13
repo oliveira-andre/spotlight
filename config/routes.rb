@@ -26,5 +26,5 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
-  get '/*path', to: 'home#index', constraints: ->(req) { req.path !~ /\.(png|jpg|js|css|json)$/ }
+  get '/*path', to: 'home#index', constraints: ->(req) { req.path !~ /\.(png|jpg|js|css|json|mp3)$/ }
 end
