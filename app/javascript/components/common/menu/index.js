@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Navbar, Button, Container, Columns, Dropdown } from 'react-bulma-components';
-import logoImage from '../../../../assets/images/logo.png';
 import styled from 'styled-components';
-import { useLocation } from 'react-router-dom';
 import { FaUserCircle } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+
+import logoImage from '../../../../assets/images/logo.png';
 
 const ColumnsFullWidth = styled(Columns)`
   width: 100%;
@@ -13,14 +14,10 @@ const ColumnsFullWidth = styled(Columns)`
 `;
 
 const Menu = () => {
-  let loginButton;
+  const [user, _] = useState(localStorage.getItem('user'));
 
-  if (useLocation().pathname == '/') {
-    loginButton = <a href='/users/sign_in' className="is-pulled-right is-right">
-      <Button outlined={true} color="white">ENTRAR</Button>
-    </a> 
-  }
-  else {
+  let loginButton;
+  if (user) {
     loginButton = <Dropdown className='is-pulled-right is-right' color='dark' label={<FaUserCircle size="2em" />}>
       <Dropdown.Item value="other">
         <a href='/users/edit'>
@@ -33,6 +30,11 @@ const Menu = () => {
         </a>
       </Dropdown.Item>
     </Dropdown>
+  }
+  else {
+    loginButton = <Link to='/login' className='is-pulled-right is-right'>
+      <Button outlined={true} color="white">ENTRAR</Button>
+    </Link> 
   }
 
   return (

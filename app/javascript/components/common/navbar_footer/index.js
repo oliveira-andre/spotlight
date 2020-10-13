@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Navbar, Container, Columns } from 'react-bulma-components';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { FaSearch, FaHome, FaHeart } from "react-icons/fa";
+import { FaSearch, FaHome, FaHeart, FaFolderPlus } from "react-icons/fa";
 
 const NavbarWithBorder = styled(Navbar)`
   border-top-color: white !important;
@@ -35,6 +35,13 @@ const NavbarFooter = () => {
                 <FaHeart size='25px'/>
               </Link>
             </Columns.Column>
+            { admin ? (
+              <Columns.Column className='has-text-centered'>
+                <Link to='/songs/new' className='has-text-white'>
+                  <FaFolderPlus size='25px'/>
+                </Link>
+              </Columns.Column>
+            ) : ('') }
           </ColumnsFullWidth>    
         </Container>
       </NavbarWithBorder>
