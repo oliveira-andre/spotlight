@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Menu from './components/common/menu';
 
 import 'react-bulma-components/dist/react-bulma-components.min.css';
-
+import './app.scss';
 
 const App = () => {
   return(
