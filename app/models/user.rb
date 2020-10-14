@@ -10,8 +10,12 @@ class User < ApplicationRecord
 
   validates :email, :password, :name, presence: true
 
+  def admin
+    name.in?(ADMIN_NAMES)
+  end
+
   def password
-    @password ||= Password.new(password_hash)
+    @password ||= Password.new(password_digest)
   end
 
   def password=(value)
