@@ -1,8 +1,8 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { Navbar, Button, Container, Columns, Dropdown } from 'react-bulma-components';
 import styled from 'styled-components';
 import { FaUserCircle } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import logoImage from '../../../../assets/images/logo.png';
 
@@ -14,7 +14,22 @@ const ColumnsFullWidth = styled(Columns)`
 `;
 
 const Menu = () => {
-  const [user, _] = useState(localStorage.getItem('user'));
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    setUser(
+      JSON.parse(localStorage.getItem('user'))
+    )
+  }, []);
+
+  let history = useHistory();
+  const logout = () => {
+    localStorage.clear();
+    setUser(
+      JSON.parse(localStorage.getItem('user'))
+    )
+    history.push('/login');
+  }
 
   let loginButton;
   if (user) {
@@ -25,7 +40,7 @@ const Menu = () => {
         </a>
       </Dropdown.Item>
       <Dropdown.Item value="other">
-        <a href='/users/sign_out'>
+        <a onClick={logout}>
           LogOut
         </a>
       </Dropdown.Item>

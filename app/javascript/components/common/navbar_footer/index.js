@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { Navbar, Container, Columns } from 'react-bulma-components';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -15,6 +15,9 @@ const ColumnsFullWidth = styled(Columns)`
 `;
 
 const NavbarFooter = () => {
+  const [admin, _] = useState(
+    JSON.parse(localStorage.getItem('user'))['admin']
+  );
   return (
     <Fragment> 
       <NavbarWithBorder fixed='bottom' color='dark'>
