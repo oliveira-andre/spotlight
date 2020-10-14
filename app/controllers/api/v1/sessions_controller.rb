@@ -11,7 +11,7 @@ module Api
           session_params[:password]
         )
 
-        head :created
+        render :create, status: :created
       end
 
       private
