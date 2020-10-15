@@ -1,0 +1,8 @@
+.is-spaced-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.active {
+  color: #00d1b2;
+}
