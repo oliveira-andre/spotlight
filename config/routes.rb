@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       resources :albums, only: :show do
         resources :recently_heards, only: :create
       end
-      resources :songs, only: [] do
+      resources :songs, only: %i[create] do
         concerns :favoritable, favoritable_type: 'Song'
       end
       resources :favorites, only: :index
