@@ -1,8 +1,15 @@
 @import "~react-bulma-components/src/index.sass";
 
+body {
+  height: 100%;
+}
+
 html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
   background-color: $dark;
+  background-repeat: repeat-y;
+  height: auto;
+  min-height: 100%;
 }
