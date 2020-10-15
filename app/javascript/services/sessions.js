@@ -1,7 +1,7 @@
 import Api from './api';
 
-const SearchService = {
+const SessionsService = {
   create: (params) => Api.post(`/sessions`, { session: params })
 }
 
-export default SearchService;
+export default SessionsService;
