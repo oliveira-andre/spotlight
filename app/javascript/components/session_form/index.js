@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import SessionsService from '../../services/sessions';
 
-const FormSession = () => {
+const SessionForm = () => {
   const { Input, Field, Control, Label } = Form;
   const [form, setForm] = useState({ email: '', password: '' });
   const updateForm = ((e) => setForm({ ...form, [e.target.id]: e.target.value }))
@@ -19,10 +19,9 @@ const FormSession = () => {
   async function authUser() {
     const response = await SessionsService.create({ ...form });
 
-    console.log(response)
     if(response.status === 201) {
       setUser(JSON.stringify(response.data));
-      history.push('/discovery');
+      Turbolinks.visit('/discovery'); // TODO switch this to histoy.push
     } else {
       alert('error');
     }
@@ -63,4 +62,4 @@ const FormSession = () => {
   )
 }
 
-export default FormSession;
+export default SessionForm;
