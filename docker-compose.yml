@@ -2,7 +2,7 @@ version: '3'
 
 services:
   postgres:
-    image: 'postgres:latest'
+    image: 'postgres:9.5'
     volumes:
       - 'postgres:/var/lib/postgresql/data'
     environment:
@@ -20,10 +20,9 @@ services:
       - box:/box
     depends_on:
       - postgres
+      - box
     environment:
       - SKIP_PREFLIGHT_CHECK=true
-      - db_user=root
-      - db_pass=root
 
   box:
     image: busybox
