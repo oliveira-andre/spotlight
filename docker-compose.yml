@@ -20,6 +20,8 @@ services:
       - box:/box
     depends_on:
       - postgres
+    links:
+      - 'postgres:postgres'
     environment:
       - SKIP_PREFLIGHT_CHECK=true
 
