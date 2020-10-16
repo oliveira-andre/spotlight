@@ -32,6 +32,7 @@ const Menu = () => {
   }
 
   let loginButton;
+  let rootLink;
   if (user) {
     loginButton = <Dropdown className='is-pulled-right is-right' color='dark' label={<FaUserCircle size="2em" />}>
       <Dropdown.Item value="other">
@@ -45,11 +46,19 @@ const Menu = () => {
         </a>
       </Dropdown.Item>
     </Dropdown>
+
+    rootLink = <Link to='/discovery'>
+                  <img src={logoImage} className='image'/>
+                </Link>
   }
   else {
     loginButton = <Link to='/login' className='is-pulled-right is-right'>
       <Button outlined={true} color="white">ENTRAR</Button>
     </Link> 
+
+    rootLink = <Link to='/discovery'>
+                  <img src={logoImage} className='image'/>
+                </Link>
   }
 
   return (
@@ -58,7 +67,7 @@ const Menu = () => {
         <Container>
           <ColumnsFullWidth className='is-mobile'>
             <Columns.Column desktop={{size: 2}} mobile={{size: 5}}>
-              <img src={logoImage} className='image'/>
+              { rootLink }
             </Columns.Column>
             <Columns.Column>
               {loginButton}
