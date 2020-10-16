@@ -13,6 +13,11 @@ const CustomTab = styled(Tabs.Tab)`
       border-color: hsl(171, 100%, 41%) !important;
     `}
   }
+
+  a:hover {
+    color: white;
+    border-color: white;
+  }
 `
 
 const ResultsTabs = (props) => {
