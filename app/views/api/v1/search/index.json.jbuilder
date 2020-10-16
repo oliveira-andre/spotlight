@@ -6,7 +6,7 @@ json.songs @songs.each do |song|
   json.artist_name song.album.artist.name
   json.file_url url_for(song.file)
   json.album_id song.album.id
-  json.favorite current_user.favorite?('Song', song.id)
+  json.favorite @current_user.favorite?('Song', song.id)
 end
 
 json.artists @artists.each do |artist|
