@@ -2,12 +2,12 @@ version: '3'
 
 services:
   postgres:
-    image: 'postgres:9.5'
+    image: 'postgres:latest'
     volumes:
       - 'postgres:/var/lib/postgresql/data'
     environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=safe
 
   web_app:
     build: .
